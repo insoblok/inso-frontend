@@ -2,6 +2,8 @@
 
 echo "🌀 Creating client script with ENV values..."
 
+GIT_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "v0.0.0")
+
 # Define the output file name
 output_file="${1:-./public/assets/envs.js}"
 

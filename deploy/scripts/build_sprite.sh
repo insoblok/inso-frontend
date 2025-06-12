@@ -14,14 +14,15 @@ create_registry_file() {
     
     # Detect OS and set appropriate stat command
     get_file_size() {
-        local file="$1"
-        if [[ "$OSTYPE" == "darwin"* ]]; then
-            # macOS
-            stat -f%z "$file"
-        else
-            # Linux and others
-            stat -c%s "$file"
-        fi
+      local file="$1"
+
+      if stat --version >/dev/null 2>&1; then
+        # Inside Nix shell or GNU environment
+        stat -c%s "$file"
+      else
+        # Native macOS/BSD
+        stat -f%z "$file"
+      fi
     }
     
     # Function to process each file
