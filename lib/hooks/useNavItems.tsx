@@ -246,12 +246,12 @@ export default function useNavItems(): ReturnType {
       !config.UI.navigation.hiddenLinks?.rpc_api && {
         text: 'RPC API',
         icon: 'RPC',
-        url: 'https://docs.blockscout.com/for-users/api/rpc-endpoints',
+        url: 'https://ethereum.org/en/developers/docs/apis/json-rpc',
       },
       !config.UI.navigation.hiddenLinks?.eth_rpc_api && {
-        text: 'Eth RPC API',
+        text: 'INSO RPC API',
         icon: 'RPC',
-        url: ' https://docs.blockscout.com/for-users/api/eth-rpc',
+        url: 'https://ethereum.org/en/developers/docs/apis/json-rpc',
       },
     ].filter(Boolean);
 
